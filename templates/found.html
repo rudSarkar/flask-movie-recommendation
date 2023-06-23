@@ -9,41 +9,33 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
-    .movie {
-      margin: 30px;
-    }
-
-    .movie-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
     }
 
     .movie-card {
-      background-color: #f8f9fa;
-      border-radius: 5px;
-      padding: 15px;
-      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ccc;
+      padding: 10px;
     }
 
-    .movie-card a {
-      color: #343a40;
-      text-decoration: none;
-    }
-
-    .movie-card a:hover {
-      color: #007bff;
+    .poster-container {
+      height: 300px;
+      background-color: #f1f1f1;
+      /* Add additional styling as needed */
     }
 
     .movie-details {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
+      margin-top: 10px;
     }
 
     .movie-details span {
-      font-weight: bold;
+      display: block;
     }
+
 
     .back-button {
       margin-bottom: 30px;
@@ -52,144 +44,154 @@
 </head>
 
 <body>
-  <button class="btn btn-primary back-button" onclick="window.history.back()">Back to Home Page</button>
-  <div class="movie">
-    <p class="movie-title">Movie Recommendations for "{{ search_name }}"</p>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[0] }}" target="_blank">{{ movie_names[0] }}</a></span>
-        <span>{{ movie_releaseDate[0] }}</span>
-        <span>{{ movie_simScore[0][1] }}</span>
-      </div>
+  <div class="container">
+    <div class="mt-5">
+      <button class="btn btn-primary back-button" onclick="window.history.back()">Back to Home Page</button>
     </div>
 
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
+    <p class="movie-title">Movie Recommendations for "<b>{{ search_name }}</b>"</p>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <div class="poster-container" id="poster0"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[0] }}" target="_blank">{{ movie_names[0] }}</a></span>
+          <span>{{ movie_release_dates[0] }}</span>
+          <span>{{ movie_sim_scores[0][1] }}</span>
+        </div>
       </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[1] }}" target="_blank">{{ movie_names[1] }}</a></span>
-        <span>{{ movie_releaseDate[1] }}</span>
-        <span>{{ movie_simScore[1][1] }}</span>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster1"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[1] }}" target="_blank">{{ movie_names[1] }}</a></span>
+          <span>{{ movie_release_dates[1] }}</span>
+          <span>{{ movie_sim_scores[1][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster2"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[2] }}" target="_blank">{{ movie_names[2] }}</a></span>
+          <span>{{ movie_release_dates[2] }}</span>
+          <span>{{ movie_sim_scores[2][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster3"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[3] }}" target="_blank">{{ movie_names[3] }}</a></span>
+          <span>{{ movie_release_dates[3] }}</span>
+          <span>{{ movie_sim_scores[3][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster4"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[4] }}" target="_blank">{{ movie_names[4] }}</a></span>
+          <span>{{ movie_release_dates[4] }}</span>
+          <span>{{ movie_sim_scores[4][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster5"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[5] }}" target="_blank">{{ movie_names[5] }}</a></span>
+          <span>{{ movie_release_dates[5] }}</span>
+          <span>{{ movie_sim_scores[5][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster6"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[6] }}" target="_blank">{{ movie_names[6] }}</a></span>
+          <span>{{ movie_release_dates[6] }}</span>
+          <span>{{ movie_sim_scores[6][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster7"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[7] }}" target="_blank">{{ movie_names[7] }}</a></span>
+          <span>{{ movie_release_dates[7] }}</span>
+          <span>{{ movie_sim_scores[7][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster8"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[8] }}" target="_blank">{{ movie_names[8] }}</a></span>
+          <span>{{ movie_release_dates[8] }}</span>
+          <span>{{ movie_sim_scores[8][1] }}</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-container" id="poster9"></div>
+        <div class="movie-details">
+
+          <span><a href="{{ movie_homepage[9] }}" target="_blank">{{ movie_names[9] }}</a></span>
+          <span>{{ movie_release_dates[9] }}</span>
+          <span>{{ movie_sim_scores[9][1] }}</span>
+        </div>
       </div>
     </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[2] }}" target="_blank">{{ movie_names[2] }}</a></span>
-        <span>{{ movie_releaseDate[2] }}</span>
-        <span>{{ movie_simScore[2][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[3] }}" target="_blank">{{ movie_names[3] }}</a></span>
-        <span>{{ movie_releaseDate[3] }}</span>
-        <span>{{ movie_simScore[3][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[4] }}" target="_blank">{{ movie_names[4] }}</a></span>
-        <span>{{ movie_releaseDate[4] }}</span>
-        <span>{{ movie_simScore[4][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[5] }}" target="_blank">{{ movie_names[5] }}</a></span>
-        <span>{{ movie_releaseDate[5] }}</span>
-        <span>{{ movie_simScore[5][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[6] }}" target="_blank">{{ movie_names[6] }}</a></span>
-        <span>{{ movie_releaseDate[6] }}</span>
-        <span>{{ movie_simScore[6][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[7] }}" target="_blank">{{ movie_names[7] }}</a></span>
-        <span>{{ movie_releaseDate[7] }}</span>
-        <span>{{ movie_simScore[7][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[8] }}" target="_blank">{{ movie_names[8] }}</a></span>
-        <span>{{ movie_releaseDate[8] }}</span>
-        <span>{{ movie_simScore[8][1] }}</span>
-      </div>
-    </div>
-
-    <div class="movie-card">
-      <div class="movie-details">
-        <span>Movie Title:</span>
-        <span>Release Date:</span>
-        <span>Similarity Score:</span>
-      </div>
-      <div class="movie-details">
-        <span><a href="{{ movie_homepage[9] }}" target="_blank">{{ movie_names[9] }}</a></span>
-        <span>{{ movie_releaseDate[9] }}</span>
-        <span>{{ movie_simScore[9][1] }}</span>
-      </div>
-    </div>
-
   </div>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var apiKey = "15d2ea6d0dc1d476efbca3eba2b9bbfb";
+
+      var displayPoster = function (index, posterPath, title) {
+        var posterContainer = $("#poster" + index);
+        var posterImg = $("<img>").attr("src", "http://image.tmdb.org/t/p/w200/" + posterPath)
+          .attr("alt", title)
+          .addClass("poster");
+
+        posterContainer.append(posterImg);
+      };
+
+      $(".movie-card").each(function (index) {
+        var movieDetails = $(this).find(".movie-details");
+        var movieTitle = movieDetails.find("span a").text();
+
+        if (movieTitle !== '') {
+          $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + movieTitle + "&callback=?", function (json) {
+            if (json != "Nothing found.") {
+              var posterPath = json.results[0].poster_path;
+              var movieTitle = json.results[0].title;
+              displayPoster(index, posterPath, movieTitle);
+            } else {
+              var defaultPosterPath = "{{ default_poster_path }}";
+              displayPoster(index, defaultPosterPath, "No Poster Available");
+            }
+          });
+        }
+        console.log("Movie Title at index " + index + ":", movieTitle);
+      });
+
+    });
+
+  </script>
+
 </body>
 
 </html>

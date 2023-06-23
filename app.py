@@ -7,27 +7,26 @@ from flask_caching import Cache
 app = flask.Flask(__name__, template_folder='templates')
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
-df2 = pd.read_csv('./model/tmdb.csv')
+df = pd.read_csv('./model/tmdb.csv')
 
 tfidf = TfidfVectorizer(stop_words='english', analyzer='word')
 
 # Construct the required TF-IDF matrix by fitting and transforming the data
-tfidf_matrix = tfidf.fit_transform(df2['soup'])
+tfidf_matrix = tfidf.fit_transform(df['soup'])
 print(tfidf_matrix.shape)
 
-# construct cosine similarity matrix
+# Construct cosine similarity matrix
 cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 print(cosine_sim.shape)
 
-df2 = df2.reset_index()
-indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
+df = df.reset_index()
+indices = pd.Series(df.index, index=df['title']).drop_duplicates()
 
-# create array with all movie titles
-all_titles = [df2['title'][i] for i in range(len(df2['title']))]
+# Create an array with all movie titles
+all_titles = [df['title'][i] for i in range(len(df['title']))]
 
 
 def get_recommendations(title):
-
     # Convert the input title to lowercase
     title = title.lower()
     # Convert all_titles to lowercase
@@ -45,11 +44,11 @@ def get_recommendations(title):
     # Get the movie indices
     movie_indices = [i[0] for i in sim_scores]
 
-    # return list of similar movies and similarity scores
+    # Return a DataFrame of similar movies and similarity scores
     return_df = pd.DataFrame(columns=['Title', 'Homepage'])
-    return_df['Title'] = df2['title'].iloc[movie_indices]
-    return_df['Homepage'] = df2['homepage'].iloc[movie_indices]
-    return_df['ReleaseDate'] = df2['release_date'].iloc[movie_indices]
+    return_df['Title'] = df['title'].iloc[movie_indices]
+    return_df['Homepage'] = df['homepage'].iloc[movie_indices]
+    return_df['ReleaseDate'] = df['release_date'].iloc[movie_indices]
     return return_df, sim_scores
 
 
@@ -60,24 +59,25 @@ def main():
         return flask.render_template('index.html')
 
     if flask.request.method == 'POST':
-        m_name = " ".join(flask.request.form['movie_name'].split())
-        if m_name.lower() not in [t.lower() for t in all_titles]:
-            return flask.render_template('notFound.html', name=m_name)
+        movie_name = " ".join(flask.request.form['movie_name'].split())
+        if movie_name.lower() not in [t.lower() for t in all_titles]:
+            return flask.render_template('notFound.html', name=movie_name)
         else:
-            result_final, sim_scores = get_recommendations(m_name.lower())
-            names = []
+            result_final, sim_scores = get_recommendations(movie_name.lower())
+            movie_names = []
             homepage = []
-            releaseDate = []
+            release_dates = []
             for i in range(len(result_final)):
-                names.append(result_final.iloc[i][0])
-                releaseDate.append(result_final.iloc[i][2])
+                movie_names.append(result_final.iloc[i][0])
+                release_dates.append(result_final.iloc[i][2])
                 if len(str(result_final.iloc[i][1])) > 3:
                     homepage.append(result_final.iloc[i][1])
                 else:
                     homepage.append("#")
 
-            return flask.render_template('found.html', movie_names=names, movie_homepage=homepage,
-                                         search_name=m_name, movie_releaseDate=releaseDate, movie_simScore=sim_scores)
+            return flask.render_template('found.html', movie_names=movie_names, movie_homepage=homepage,
+                                         search_name=movie_name, movie_release_dates=release_dates,
+                                         movie_sim_scores=sim_scores)
 
 
 if __name__ == '__main__':
