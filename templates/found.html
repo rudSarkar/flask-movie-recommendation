@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recommendations for {{ search_name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .movie {
+      margin: 30px;
+    }
+
+    .movie-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .movie-card {
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .movie-card a {
+      color: #343a40;
+      text-decoration: none;
+    }
+
+    .movie-card a:hover {
+      color: #007bff;
+    }
+
+    .movie-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .movie-details span {
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn btn-primary back-button" onclick="window.history.back()">Back to Home Page</button>
+  <div class="movie">
+    <p class="movie-title">Movie Recommendations for "{{ search_name }}"</p>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[0] }}" target="_blank">{{ movie_names[0] }}</a></span>
+        <span>{{ movie_releaseDate[0] }}</span>
+        <span>{{ movie_simScore[0][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[1] }}" target="_blank">{{ movie_names[1] }}</a></span>
+        <span>{{ movie_releaseDate[1] }}</span>
+        <span>{{ movie_simScore[1][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[2] }}" target="_blank">{{ movie_names[2] }}</a></span>
+        <span>{{ movie_releaseDate[2] }}</span>
+        <span>{{ movie_simScore[2][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[3] }}" target="_blank">{{ movie_names[3] }}</a></span>
+        <span>{{ movie_releaseDate[3] }}</span>
+        <span>{{ movie_simScore[3][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[4] }}" target="_blank">{{ movie_names[4] }}</a></span>
+        <span>{{ movie_releaseDate[4] }}</span>
+        <span>{{ movie_simScore[4][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[5] }}" target="_blank">{{ movie_names[5] }}</a></span>
+        <span>{{ movie_releaseDate[5] }}</span>
+        <span>{{ movie_simScore[5][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[6] }}" target="_blank">{{ movie_names[6] }}</a></span>
+        <span>{{ movie_releaseDate[6] }}</span>
+        <span>{{ movie_simScore[6][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[7] }}" target="_blank">{{ movie_names[7] }}</a></span>
+        <span>{{ movie_releaseDate[7] }}</span>
+        <span>{{ movie_simScore[7][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[8] }}" target="_blank">{{ movie_names[8] }}</a></span>
+        <span>{{ movie_releaseDate[8] }}</span>
+        <span>{{ movie_simScore[8][1] }}</span>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <div class="movie-details">
+        <span>Movie Title:</span>
+        <span>Release Date:</span>
+        <span>Similarity Score:</span>
+      </div>
+      <div class="movie-details">
+        <span><a href="{{ movie_homepage[9] }}" target="_blank">{{ movie_names[9] }}</a></span>
+        <span>{{ movie_releaseDate[9] }}</span>
+        <span>{{ movie_simScore[9][1] }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+
+</html>

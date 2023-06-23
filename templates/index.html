@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CB Movie Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <style>
+    /* Additional custom styles can be added here */
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="mt-5">Content Based Movie Recommendation System</h2>
+    <div class="movie mt-4">
+      <form action="{{ url_for('main') }}" method="POST">
+        <div class="input-group">
+          <input type="text" id="movie_name" name="movie_name" class="form-control"
+            placeholder="Enter a full movie name" autocorrect="off" autocapitalize="off" required>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+</body>
+
+</html>
