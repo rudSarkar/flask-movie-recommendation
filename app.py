@@ -23,7 +23,10 @@ df = df.reset_index()
 indices = pd.Series(df.index, index=df['title']).drop_duplicates()
 
 # Create an array with all movie titles
-all_titles = [df['title'][i] for i in range(len(df['title']))]
+all_titles = []
+for i in range(len(df['title'])):
+    title = df['title'][i]
+    all_titles.append(title)
 
 
 def get_recommendations(title):
